@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import JobDetail from './pages/JobDetail'
 import Footer from './components/Footer'
+import PopularJobs from './components/PopularJobs'
 
 
 
@@ -17,6 +18,7 @@ const App = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/job/:id' element={<JobDetail/>}/>
             </Routes>
+            <PopularJobs/>
             <Footer/>
         </Box>
     )
