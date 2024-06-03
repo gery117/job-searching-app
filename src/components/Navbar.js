@@ -16,7 +16,7 @@ const Navbar = () => {
     >
       <Link to="/">
         <img src={logo} alt="logo" style={{
-          width:"48px", height: "48px", margin: "0 20px"
+          width:"80px", height: "80px", margin: "0 10px"
         }}
         />
       </Link>
