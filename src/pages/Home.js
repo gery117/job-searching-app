@@ -1,8 +1,15 @@
-import React from 'react'
+import { Box } from '@mui/material'
+import HeroBanner from '../components/HeroBanner'
+import SearchJob from '../components/SearchJob'
+import Jobs from '../components/Jobs'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Box>
+      <HeroBanner/>
+      <SearchJob/>
+      <Jobs/>
+    </Box>
   )
 }
 
