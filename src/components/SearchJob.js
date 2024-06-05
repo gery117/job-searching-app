@@ -1,9 +1,29 @@
 import {useEffect, useState} from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { fetchData } from '../utils/fetchData';
 
 const SearchJob = () => {
     const [search, setSearch] = useState('')
 
+    const handleSearch = async()=> {
+        if (search) {
+            const options = {
+                params: {
+                    query: search,
+                    page: '1',
+                    num_pages: '1',
+                    date_posted: 'all'
+                },
+                headers: {
+                    'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+                    'x-rapidapi-host': 'jsearch.p.rapidapi.com'
+                }
+            };
+            const jobData = await fetchData('search', options);
+            console.log(search)
+            console.log(jobData)
+        }
+    }
 
     return (
         <Stack 
@@ -53,7 +73,7 @@ const SearchJob = () => {
                         position: 'absolute',
                         right: '0'
                     }}
-                
+                    onClick={handleSearch}
                 >
                     Search
                 </Button>
