@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
 
-const SearchJob = () => {
+const SearchJob = ({setJobs, jobs}) => {
     const [search, setSearch] = useState('')
+    
 
     const handleSearch = async()=> {
         if (search) {
@@ -20,9 +22,15 @@ const SearchJob = () => {
                 }
             };
             const jobData = await fetchData('search', options);
-            console.log(search)
-            console.log(jobData)
+            
+            console.log(search);
+            
+
+            setSearch('');
+            setJobs(jobData.data);
+            console.log(jobs)
         }
+        
     }
 
     return (
@@ -77,6 +85,12 @@ const SearchJob = () => {
                 >
                     Search
                 </Button>
+            </Box>
+            <Box sx={{ position: 'relative', width: '100%', p: '20px'}}>
+                    <HorizontalScrollbar 
+                        jobs = {jobs}
+                        setJobs={setJobs}
+                        />
             </Box>
         </Stack>
     )
