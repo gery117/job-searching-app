@@ -14,9 +14,23 @@ const JobCard = (job) => {
       <Link className="logo-container" to={`/job/${job.id}`} >
       <img className="logo-image" src={validImageURL} alt={job.job.employer_name} loading="lazy" />
       </Link>
-      
-      <Typography className="company-name">
+      <Typography 
+        className="company-name"
+        fontWeight='700'
+        sx={{
+          fontSize: {lg:'20px', xs: '15px'}
+        }}
+      >
         {job.job.employer_name}
+      </Typography>
+      <Typography 
+        className="job-title"
+        fontWeight='300'
+        sx={{
+          fontSize: {lg:'20px', xs: '15px'}
+        }}
+      >
+        {job.job.job_title}
       </Typography>
     </Box>
   )
