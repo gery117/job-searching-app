@@ -11,7 +11,7 @@ const JobCard = (job) => {
 
   return (
     <Box className="container">
-      <Link className="logo-container" to={`/job/${job.id}`} >
+      <Link className="logo-container" to={`/job/${job.job.job_id}`} >
       <img className="logo-image" src={validImageURL} alt={job.job.employer_name} loading="lazy" />
       </Link>
       <Typography 

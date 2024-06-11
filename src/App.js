@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import JobDetail from './pages/JobDetail'
 import Footer from './components/Footer'
 import PopularJobs from './components/PopularJobs'
+import NearbyJobs from './components/NearbyJobs'
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
                 <Route path='/job/:id' element={<JobDetail/>}/>
             </Routes>
             <PopularJobs/>
+            <NearbyJobs/>
             <Footer/>
         </Box>
     )
