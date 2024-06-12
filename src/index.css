@@ -80,7 +80,6 @@ body {
     white-space: nowrap;
     overflow: hidden; 
     text-overflow: ellipsis;
-     
 }
 
 .job-title{
@@ -89,6 +88,89 @@ body {
     text-overflow: ellipsis;
     width: 150px; 
 }
+
+.details-container{
+    margin: 16px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-logobox{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+    border-radius: 20px;
+    margin-top: 12px;
+
+}
+
+.details-logoImage{
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.details-companyName{
+    font-size: 20px;
+    color: #312651;
+    font-family: "DMBold";
+    text-align: center;
+}
+
+.details-companyNameBox{
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-jobTitleBox{
+    margin-top: 12px;
+}
+
+.details-countryNameBox{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.details-countryName{
+    font-size: 14px; 
+    color: #83829A;
+    font-family: "DMRegular";
+    margin-left: 2px;
+}
+
+.details-locationNameBox{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.details-locationName{
+    font-size: 14px; 
+    color: #83829A;
+    font-family: "DMRegular";
+    margin-left: 2px;
+}
+
+.details-descriptionBox{
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.details-description{
+    font-size: 18px; 
+    color: #83829A;
+    font-family: "DMRegular";
+    margin-left: 2px;
+}
+
 
 @media screen and (max-width:1200px) {
     .hero-banner-img {

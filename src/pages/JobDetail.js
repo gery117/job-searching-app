@@ -33,7 +33,7 @@ const JobDetail = () => {
 
 
     fetchJobData()
-  }, [])
+  }, [id])
   
 
 

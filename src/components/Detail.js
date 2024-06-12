@@ -10,28 +10,35 @@ const Detail = ({ companyLogo, JobTitle, companyName, Country, Location, descrip
     : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg";
 
     return (
-        <Stack>
-            <Box>
-            <img  src={validImageURL} alt={companyLogo} loading="lazy" />
+        <Stack className="details-container">
+            <Box className="details-logobox">
+                <img className="details-logoImage"  src={validImageURL} alt={companyLogo} loading="lazy" />
             </Box>
-            <Typography>
-                {companyName}
-            </Typography>
-            <Typography>
-                {JobTitle}
-            </Typography>
-            <Typography>
-                {Country}
-            </Typography>
-            <Typography>
-                {Location}
-            </Typography>
-            <Typography>
-                {Country}
-            </Typography>
-            <Typography>
-                {description}
-            </Typography>
+            <Box className="details-companyNameBox">
+                <p className="details-companyName">
+                    {companyName}
+                </p>
+            </Box>
+            <Box className="details-jobTitleBox">
+                <p className="details-jobTitle">
+                    {JobTitle}
+                </p>
+            </Box>
+            <Box className="details-countryNameBox">
+                <p className="details-countryName">
+                    {Country}
+                </p>
+            </Box>
+            <Box className="details-locationNameBox">
+                <p className="details-locationName">
+                    {Location}
+                </p>
+            </Box>
+            <Box className="details-descriptionBox">
+                <p className="details-description">
+                    {description}
+                </p>
+            </Box>
         </Stack>
     )
 }
