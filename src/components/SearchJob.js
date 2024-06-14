@@ -28,7 +28,7 @@ const SearchJob = ({setJobs, jobs}) => {
 
             setSearch('');
             setJobs(jobData.data);
-            console.log(jobs)
+            console.log(jobs);
         }
         
     }
@@ -48,7 +48,7 @@ const SearchJob = ({setJobs, jobs}) => {
                 mb='50px'
                 textAlign='center'
             >
-                Check Jobs Here
+                Search All Jobs Here
             </Typography>
             <Box 
                 position='relative'

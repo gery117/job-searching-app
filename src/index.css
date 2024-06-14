@@ -132,44 +132,20 @@ body {
     margin-top: 12px;
 }
 
-.details-countryNameBox{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
 
-.details-countryName{
-    font-size: 14px; 
+.details-locationName, .details-description, .details-countryName{
+    font-size: 16px; 
     color: #83829A;
     font-family: "DMRegular";
     margin-left: 2px;
 }
 
-.details-locationNameBox{
+.details-descriptionBox, .details-countryNameBox, .details-locationNameBox{
     display: flex; 
     justify-content: center;
     align-items: center;
 }
 
-.details-locationName{
-    font-size: 14px; 
-    color: #83829A;
-    font-family: "DMRegular";
-    margin-left: 2px;
-}
-
-.details-descriptionBox{
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-}
-
-.details-description{
-    font-size: 18px; 
-    color: #83829A;
-    font-family: "DMRegular";
-    margin-left: 2px;
-}
 
 
 @media screen and (max-width:1200px) {

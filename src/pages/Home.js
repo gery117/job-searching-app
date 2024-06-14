@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material'
 import HeroBanner from '../components/HeroBanner'
 import SearchJob from '../components/SearchJob'
-// import Jobs from '../components/Jobs'
+import PopularJobs from '../components/PopularJobs';
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -14,10 +14,10 @@ const Home = () => {
         setJobs = {setJobs}
         jobs = {jobs}
       />
-      {/* <Jobs 
+      <PopularJobs
         setJobs = {setJobs}
         jobs = {jobs}
-      /> */}
+      />
     </Box>
   )
 }

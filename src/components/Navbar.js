@@ -33,7 +33,7 @@ const Navbar = () => {
           >
             Home
         </Link>
-        <a href="#jobs" style={{
+        <a href="#popularJobs"  style={{
           textDecoration: 'none', color:"#3A1212"
         }}>
           Jobs

@@ -19,8 +19,6 @@ const App = () => {
                 <Route path='/' element={<Home/>}/>
                 <Route path='/job/:id' element={<JobDetail/>}/>
             </Routes>
-            <PopularJobs/>
-            <NearbyJobs/>
             <Footer/>
         </Box>
     )

@@ -29,14 +29,14 @@ const HeroBanner = () => {
             Find your perfect job
         </Typography>
         <Button 
-            href="#jobs" 
+            href="#popularJobs" 
             variant='contained'
             sx={{
                 backgroundColor: "#158E8D",
                 padding: '10px'
             }}
         >
-            Explore Jobs
+            Explore Popular Jobs
         </Button>
         <img 
             src={banner} 

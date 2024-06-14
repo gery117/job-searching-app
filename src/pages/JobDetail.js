@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 
 import { fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail';
+import NearbyJobs from '../components/NearbyJobs';
 
 const JobDetail = () => {
   const [jobDetail, setJobDetail] = useState({});
@@ -48,6 +49,7 @@ const JobDetail = () => {
         Location = {jobDetail.job_city}
         description = {jobDetail.job_description}
         />
+        <NearbyJobs/>
     </Box>
   )
 }
