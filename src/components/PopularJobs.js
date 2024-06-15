@@ -6,7 +6,10 @@ import { Pagination } from '@mui/material/Pagination';
 import { fetchData } from '../utils/fetchData'
 import JobCard from './JobCard';
 
-const PopularJobs = ({setJobs, jobs}) => {
+const PopularJobs = () => {
+  const [popularJobs, setPopularJobs] = useState([])
+  
+  
   const {id} = useParams();
 
   useEffect(() => {
@@ -26,8 +29,8 @@ const PopularJobs = ({setJobs, jobs}) => {
     };
       const jobData = await fetchData('search', options);
       
-      setJobs(jobData.data);
-      console.log(jobs);
+      setPopularJobs(jobData.data);
+      console.log(popularJobs);
     }
 
 
@@ -43,7 +46,7 @@ const PopularJobs = ({setJobs, jobs}) => {
           Popular Jobs
         </Typography>
         <Stack direction="row" sx={{ gap: { lg: '107px', xs: '50px' } }} flexWrap="wrap" justifyContent="center">
-        {jobs.map((job, index) => {
+        {popularJobs.map((job, index) => {
                         // console.log(job)
                         return(
                             <Box
