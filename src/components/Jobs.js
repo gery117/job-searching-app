@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { Pagination } from '@mui/material/Pagination';
-import { Box, Stack, Typography} from '@mui/material';
+import { Box, Stack, Typography, Button} from '@mui/material';
+import {Link} from 'react-router-dom'
+import { checkImageURL } from '../utils/ValidImage'
 
-const Jobs = ({item}) => {
+
+const Jobs = (job) => {
+  console.log(job)
+  const validImageURL = checkImageURL(job.job.employer_logo)
+  ? job.job.employer_logo
+  : "https://t4.ftcdn.net/jpg/05/05/61/73/360_F_505617309_NN1CW7diNmGXJfMicpY9eXHKV4sqzO5H.jpg";
+
   return (
-    <Box id="jobs"
-      sx={{mt: {lg:'110px'}}}
-      mt="50px"
-      p="20px"
-    >
-      <Stack 
-          alignItems="center"
-          justifyContent="center"
-          sx={{gap:{lg:'110px', xs:'50px'}}}
+    <Link className="jobsContainer" to={`/job/${job.job.job_id}`}>
+      <Link className="jobsLogo-container" to={`/job/${job.job.job_id}`} >
+        <img className="jobsLogo-image" src={validImageURL} alt={job.job.employer_name} loading="lazy" />
+      </Link>
+      <Typography 
+        className="company-name"
+        fontWeight='700'
+        sx={{
+          fontSize: {lg:'20px', xs: '15px'}
+        }}
       >
-
-      </Stack>
-    </Box>
+        {job.job.employer_name}
+      </Typography>
+      <Typography 
+        className="jobsLogo-title"
+        fontWeight='300'
+        sx={{
+          fontSize: {lg:'20px', xs: '15px'}
+        }}
+      >
+        {job.job.job_title}
+      </Typography>
+    </Link>
   )
 }
 

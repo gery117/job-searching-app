@@ -5,6 +5,7 @@ import { Pagination } from '@mui/material/Pagination';
 
 import { fetchData } from '../utils/fetchData'
 import JobCard from './JobCard';
+import Jobs from './Jobs';
 
 const PopularJobs = () => {
   const [popularJobs, setPopularJobs] = useState([])
@@ -53,8 +54,7 @@ const PopularJobs = () => {
                                 key={index}
                                 m="0 40px"
                             >
-                                <JobCard job={job}
-                                />
+                                <Jobs job={job}/>
                             </Box>
                         )    
                     }
