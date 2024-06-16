@@ -13,9 +13,9 @@ const Jobs = (job) => {
 
   return (
     <Link className="jobsContainer" to={`/job/${job.job.job_id}`}>
-      <Link className="jobsLogo-container" to={`/job/${job.job.job_id}`} >
+      <Box className="jobsLogo-container"  >
         <img className="jobsLogo-image" src={validImageURL} alt={job.job.employer_name} loading="lazy" />
-      </Link>
+      </Box>
       <Typography 
         className="company-name"
         fontWeight='700'
