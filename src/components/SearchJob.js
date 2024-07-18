@@ -1,10 +1,11 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useContext} from 'react';
 import { Box, Button, Stack, TextField, Typography } from '@mui/material';
 import { fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
+import { AppContext } from './AppContext';
 
 const SearchJob = ({setJobs, jobs}) => {
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useContext(AppContext)
     
 
     const handleSearch = async()=> {
@@ -29,6 +30,11 @@ const SearchJob = ({setJobs, jobs}) => {
             setSearch('');
             setJobs(jobData.data);
             console.log(jobs);
+        }
+        else{
+            <Typography>
+                Sorry Job can not be found!
+            </Typography>
         }
         
     }

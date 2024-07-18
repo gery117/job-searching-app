@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { Pagination } from '@mui/material/Pagination';
 
 import { fetchData } from '../utils/fetchData'
-import JobCard from './JobCard';
 import Jobs from './Jobs';
 
 const PopularJobs = () => {
