@@ -14,10 +14,10 @@ const Home = () => {
         setJobs = {setJobs}
         jobs = {jobs}
       />
-      <PopularJobs
+      {/* <PopularJobs
         setJobs = {setJobs}
         jobs = {jobs}
-      />
+      /> */}
     </Box>
   )
 }

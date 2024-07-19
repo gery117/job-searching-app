@@ -6,8 +6,6 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import JobDetail from './pages/JobDetail'
 import Footer from './components/Footer'
-import PopularJobs from './components/PopularJobs'
-import NearbyJobs from './components/NearbyJobs'
 import { AppContext } from './components/AppContext'
 
 
