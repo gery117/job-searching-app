@@ -5,10 +5,17 @@ import { Box } from '@mui/material';
 import { fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail';
 import NearbyJobs from '../components/NearbyJobs';
+import JobTabs from '../components/JobTabs';
+
+const tabs =["About", "Qualification", "Responsibilities"];
 
 const JobDetail = () => {
   const [jobDetail, setJobDetail] = useState({});
   const {id} = useParams();
+
+  const [activeTab, setActiveTab] = useState(tabs[0])
+
+  
 
   useEffect(() => {
     const fetchJobData = async()=>{
@@ -49,7 +56,13 @@ const JobDetail = () => {
         Location = {jobDetail.job_city}
         description = {jobDetail.job_description}
         />
-        <NearbyJobs/>
+        <JobTabs
+          tabs={tabs}
+          activeTab = {activeTab}
+          setActiveTab = {setActiveTab}
+        />
+        <NearbyJobs
+        />
     </Box>
   )
 }
