@@ -6,8 +6,11 @@ import { fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail';
 import NearbyJobs from '../components/NearbyJobs';
 import JobTabs from '../components/JobTabs';
+import Specifics from '../components/Specifics';
+import JobAbout from '../components/JobAbout';
 
-const tabs =["About", "Qualification", "Responsibilities"];
+
+const tabs =["About", "Qualifications", "Responsibilities"];
 
 const JobDetail = () => {
   const [jobDetail, setJobDetail] = useState({});
@@ -36,14 +39,39 @@ const JobDetail = () => {
 
 
       setJobDetail(jobDetailData.data[0]);
-      console.log(jobDetail)
+      console.log(jobDetailData.data)
     }
 
 
     fetchJobData()
   }, [id])
   
-
+  const displayTabContent = () => {
+    switch(activeTab){
+      case "Qualifications":
+        return (
+          <Specifics
+            title="Qualifications"
+            points = {jobDetail.job_highlights?.Qualifications ?? ['N/A'] }
+          />
+        );  
+      case "About":
+        return (
+          <JobAbout
+            info={jobDetail.job_description ?? "No data provided"}
+          />
+        );
+      case "Responsibilities":
+        return(
+          <Specifics
+            title="Responsibilities"
+            points = {jobDetail.job_highlights?.Responsibilities ?? ['N/A'] }
+          />
+        );
+      default:
+        return null  
+    }
+  }
 
   return (
     <Box>
@@ -61,6 +89,7 @@ const JobDetail = () => {
           activeTab = {activeTab}
           setActiveTab = {setActiveTab}
         />
+        {displayTabContent()}
         <NearbyJobs
         />
     </Box>
