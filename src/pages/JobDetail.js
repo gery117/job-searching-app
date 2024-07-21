@@ -8,6 +8,7 @@ import NearbyJobs from '../components/NearbyJobs';
 import JobTabs from '../components/JobTabs';
 import Specifics from '../components/Specifics';
 import JobAbout from '../components/JobAbout';
+import JobFooter from '../components/JobFooter';
 
 
 const tabs =["About", "Qualifications", "Responsibilities"];
@@ -82,7 +83,7 @@ const JobDetail = () => {
         companyName= {jobDetail.employer_name}
         Country= {jobDetail.job_country}
         Location = {jobDetail.job_city}
-        description = {jobDetail.job_description}
+        // description = {jobDetail.job_description}
         />
         <JobTabs
           tabs={tabs}
@@ -90,6 +91,7 @@ const JobDetail = () => {
           setActiveTab = {setActiveTab}
         />
         {displayTabContent()}
+        <JobFooter url={jobDetail.job_google_link ?? 'https://careers.google.com/jobs/results/'}/>
         <NearbyJobs
         />
     </Box>
