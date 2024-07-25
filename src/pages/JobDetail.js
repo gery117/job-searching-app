@@ -80,6 +80,7 @@ const JobDetail = () => {
       <Detail 
         companyLogo= {jobDetail.employer_logo}
         JobTitle= {jobDetail.job_title}
+        employmentType = {jobDetail.job_employment_type}
         companyName= {jobDetail.employer_name}
         Country= {jobDetail.job_country}
         Location = {jobDetail.job_city}
@@ -91,9 +92,9 @@ const JobDetail = () => {
           setActiveTab = {setActiveTab}
         />
         {displayTabContent()}
-        <JobFooter url={jobDetail.job_google_link ?? 'https://careers.google.com/jobs/results/'}/>
-        <NearbyJobs
-        />
+        
+        <JobFooter url={ jobDetail.job_apply_link}/>
+        {/* <NearbyJobs/> */}
     </Box>
   )
 }

@@ -1,4 +1,5 @@
-import { Box, Typography } from '@mui/material'
+import { Box, ListItem, ListItemIcon, ListItemText, Typography } from '@mui/material'
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import React from 'react'
 
 const Specifics = ({title, points}) => {
@@ -9,11 +10,12 @@ const Specifics = ({title, points}) => {
             </Typography>
             <Typography>
                 {points.map((item, index) => (
-                    <Box key={index}>
-                        <Typography>
-                            {item}
-                        </Typography>
-                    </Box>
+                    <ListItem key={index}>
+                        <ListItemIcon>
+                            <FiberManualRecordIcon style={{fontSize: 8}}/>
+                        </ListItemIcon>
+                        <ListItemText primary= {item}/>
+                    </ListItem>
                 )
                 )}
             </Typography>
