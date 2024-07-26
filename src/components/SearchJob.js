@@ -1,15 +1,19 @@
 import {useEffect, useState, useContext} from 'react';
-import { Box, Button, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Stack, TextField, Typography, CircularProgress } from '@mui/material';
 import { fetchData } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 import { AppContext } from './AppContext';
 
 const SearchJob = ({setJobs, jobs}) => {
     const [search, setSearch] = useContext(AppContext)
-    
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleSearch = async()=> {
         if (search) {
+            setIsLoading(true);
+            setError(null);
+
             const options = {
                 params: {
                     query: search,
@@ -22,19 +26,24 @@ const SearchJob = ({setJobs, jobs}) => {
                     'x-rapidapi-host': 'jsearch.p.rapidapi.com'
                 }
             };
-            const jobData = await fetchData('search', options);
-            
-            console.log(search);
-            
 
-            setSearch('');
-            setJobs(jobData.data);
-            console.log(jobs);
+            try{
+                const jobData = await fetchData('search', options);
+                console.log(search);
+                setSearch('');
+                setJobs(jobData.data);
+                console.log(jobs);
+            }
+            catch(err){
+                console.error(err);
+                setError('Could not fetch jobs. Please try again.')
+            }
+            finally{
+                setIsLoading(false);
+            }   
         }
         else{
-            <Typography>
-                Sorry Job can not be found!
-            </Typography>
+            setError("Please enter a search term to look for your job")
         }
         
     }
@@ -92,12 +101,20 @@ const SearchJob = ({setJobs, jobs}) => {
                     Search
                 </Button>
             </Box>
-            <Box sx={{ position: 'relative', width: '100%', p: '20px'}}>
-                    <HorizontalScrollbar 
-                        jobs = {jobs}
-                        setJobs={setJobs}
-                        />
-            </Box>
+            {isLoading? (
+                <CircularProgress/>
+            ): error? (
+                <Typography color="error">
+                    {error}
+                </Typography>
+            ) : (    
+                <Box sx={{ position: 'relative', width: '100%', p: '20px'}}>
+                        <HorizontalScrollbar 
+                            jobs = {jobs}
+                            setJobs={setJobs}
+                            />
+                </Box>
+            )}
         </Stack>
     )
 }
