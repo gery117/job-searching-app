@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box,CircularProgress, Typography  } from '@mui/material';
 
 import { fetchData } from '../utils/fetchData'
 import Detail from '../components/Detail';
@@ -18,11 +18,14 @@ const JobDetail = () => {
   const {id} = useParams();
 
   const [activeTab, setActiveTab] = useState(tabs[0])
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
   
 
   useEffect(() => {
     const fetchJobData = async()=>{
+      setIsLoading(true);
+      setError(null);
 
       const options = {
         params: {
@@ -34,15 +37,19 @@ const JobDetail = () => {
             'x-rapidapi-host': 'jsearch.p.rapidapi.com'
         }
       };
-      const jobDetailData = await fetchData('job-details', options);
-      
-      
-
-
-      setJobDetail(jobDetailData.data[0]);
-      console.log(jobDetailData.data)
-    }
-
+      try{
+        const jobDetailData = await fetchData('job-details', options);
+        setJobDetail(jobDetailData.data[0]);
+        console.log(jobDetailData.data)
+      }  
+      catch(err) {
+        console.error(err);
+        setError('Failed to fetch job details. Please try again.');
+      }
+      finally{
+        setIsLoading(false);
+      }
+    };
 
     fetchJobData()
   }, [id])
@@ -76,25 +83,33 @@ const JobDetail = () => {
 
   return (
     <Box>
-      {/* {jobDetail.employer_name} */}
-      <Detail 
-        companyLogo= {jobDetail.employer_logo}
-        JobTitle= {jobDetail.job_title}
-        employmentType = {jobDetail.job_employment_type}
-        companyName= {jobDetail.employer_name}
-        Country= {jobDetail.job_country}
-        Location = {jobDetail.job_city}
-        // description = {jobDetail.job_description}
-        />
-        <JobTabs
-          tabs={tabs}
-          activeTab = {activeTab}
-          setActiveTab = {setActiveTab}
-        />
-        {displayTabContent()}
-        
-        <JobFooter url={ jobDetail.job_apply_link}/>
-        {/* <NearbyJobs/> */}
+      {isLoading ? (
+        <CircularProgress />
+      ): error? (
+        <Typography color="error">
+        {error}
+      </Typography>
+      ) : ( 
+      <>
+        <Detail 
+          companyLogo= {jobDetail.employer_logo}
+          JobTitle= {jobDetail.job_title}
+          employmentType = {jobDetail.job_employment_type}
+          companyName= {jobDetail.employer_name}
+          Country= {jobDetail.job_country}
+          Location = {jobDetail.job_city}
+          />
+          <JobTabs
+            tabs={tabs}
+            activeTab = {activeTab}
+            setActiveTab = {setActiveTab}
+          />
+          {displayTabContent()}
+          
+          <JobFooter url={ jobDetail.job_apply_link}/>
+          {/* <NearbyJobs/> */}
+        </>
+      )}  
     </Box>
   )
 }

@@ -19,16 +19,16 @@ const HeroBanner = () => {
             sx={{fontSize: {lg: '44px', xs: '40px'}}}
             mb='23px' mt='30px'
         >
-            The best Job <br/> Searching App Today
+            The best Job <br/> Searching <br className='lg:hidden'/> App Today
         </Typography>
         <Typography
             fontSize='22px'
             lineHeight='35px'
             mb={2}
         >
-            Find your perfect job
+            Find your perfect job by <br className='lg:hidden'/> typing in your preferred <br className='max-md:hidden'/>job and the job location
         </Typography>
-        <Button 
+        {/* <Button 
             href="#popularJobs" 
             variant='contained'
             sx={{
@@ -37,7 +37,7 @@ const HeroBanner = () => {
             }}
         >
             Explore Popular Jobs
-        </Button>
+        </Button> */}
         <img 
             src={banner} 
             alt='banner' 
