@@ -82,7 +82,7 @@ const JobDetail = () => {
   }
 
   return (
-    <Box>
+    <Box id='jobDetail'>
       {isLoading ? (
         <CircularProgress />
       ): error? (
